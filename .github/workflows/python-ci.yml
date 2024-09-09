@@ -32,17 +32,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-        - uses: actions/checkout@v4
-        - name: Set up Python
-          uses: actions/setup-python@v5
-          with:
-            python-version: '3.x'
-        - name: Install dependencies
-          run: |
-            python -m pip install --upgrade pip
-            pip install -r requirements.txt
-        - name: Lint with Ruff
-          run: |
-            pip install ruff
-            ruff check --output-format=github .
-          continue-on-error: true
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Lint with Pylint
+        run: |
+          pip install pylint  # Pylint 설치
+          pylint .  # 현재 디렉토리의 모든 파일을 검사
+        continue-on-error: true  # 에러가 있어도 워크플로우가 멈추지 않음
