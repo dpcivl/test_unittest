@@ -11,7 +11,7 @@ import unittest
 from unittest.mock import patch
 
 from Timer import Timer
-from datetime import datetime, timedelta
+from datetime import datetime
 
 class TestTimer(unittest.TestCase):
     
